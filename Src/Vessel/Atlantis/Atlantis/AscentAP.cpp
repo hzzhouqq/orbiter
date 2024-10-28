@@ -584,9 +584,9 @@ void AscentApMfd::UpdatePg_Prm (oapi::Sketchpad *skp)
 	char cbuf[256];
 
 	if (!ap->GetVessel()->status) {
-		sprintf (cbuf, "Launch azimuth: %0.1fº", ap->GetLaunchAzimuth()*DEG);
+		sprintf (cbuf, "Launch azimuth: %0.1f~", ap->GetLaunchAzimuth()*DEG);
 		skp->Text (cw/2, (ch*3)/2, cbuf, strlen(cbuf));
-		sprintf (cbuf, "Orbit inc:      %0.1fº", ap->GetTargetInclination()*DEG);
+		sprintf (cbuf, "Orbit inc:      %0.1f~", ap->GetTargetInclination()*DEG);
 		skp->Text (cw/2, (ch*5)/2, cbuf, strlen(cbuf));
 		sprintf (cbuf, "Orbit altitude: %0.1fkm", ap->GetOrbitAltitude()*1e-3);
 		skp->Text (cw/2, (ch*7)/2, cbuf, strlen(cbuf));

@@ -2553,13 +2553,22 @@ DLLEXPORT void InitLib (HINSTANCE hModule)
 {
 	typedef void (*OPC_DLLInit)(HINSTANCE hDLL);
 	OPC_DLLInit DLLInit;
-	char cbuf[256], mname[256], *mp;
+	char cbuf[256] = { 0 };
+	char mname[256] = { 0 };
+	char* mp;
 	int i, len;
+
 
 	if (td.SimT0 < 1) {
 		// don't write during simulation, since unnecessary file access
 		// can cause time waste
-		GetModuleFileName (hModule, mname, 256);
+		DWORD returnMFN = GetModuleFileName (hModule, mname, 256);
+		DWORD error = 0;
+		if (returnMFN == 0)
+		{
+			error = ::GetLastError();
+		}
+
 		for (i = 0, mp = mname; mname[i]; i++)
 			if (mname[i] == '\\') mp = mname+i+1;
 		sprintf (cbuf, "Module %s ", mp);

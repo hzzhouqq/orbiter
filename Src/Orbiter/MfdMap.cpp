@@ -349,7 +349,7 @@ void Instrument_Map::UpdateDraw_Map (oapi::Sketchpad *skp)
 			const Body *b = (const Body*)sel.obj;
 			double lng, lat, rad;
 			refplanet->GlobalToEquatorial (b->GPos(), lng, lat, rad);
-			sprintf (cbuf, "%s [%6.2fº%c %6.2fº%c, Alt %s]",
+			sprintf (cbuf, "%s [%6.2f~ %c %6.2f~ %c, Alt %s]",
 				b->Name(), fabs(lng)*DEG, lng>=0.0 ? 'E':'W', fabs(lat)*DEG,
 				lat>=0.0 ? 'N':'S', DistStr(rad-refplanet->Size()));
 			skp->SetTextColor (draw[1][0].col);
@@ -362,7 +362,7 @@ void Instrument_Map::UpdateDraw_Map (oapi::Sketchpad *skp)
 			const Base *base = (const Base*)sel.obj;
 			double lng, lat, lng0, lat0, rad, adist, hdg;
 			base->EquPos (lng, lat);
-			sprintf (cbuf, "%s [%6.2fº%c %6.2fº%c]",
+			sprintf (cbuf, "%s [%6.2f~ %c %6.2f~ %c]",
 				base->Name(), fabs(lng)*DEG, lng>=0.0 ? 'E':'W', fabs(lat)*DEG,
 				lat>=0.0 ? 'N':'S');
 			if (sp) lng0 = sp->lng, lat0 = sp->lat;
@@ -379,7 +379,7 @@ void Instrument_Map::UpdateDraw_Map (oapi::Sketchpad *skp)
 		}
 		double lng, lat, rad;
 		refplanet->GlobalToEquatorial (g_focusobj->GPos(), lng, lat, rad);
-		sprintf (cbuf, "%s [%6.2fº%c %6.2fº%c, Alt %s]",
+		sprintf (cbuf, "%s [%6.2f~ %c %6.2f~ %c, Alt %s]",
 			g_focusobj->Name(), fabs(lng)*DEG, lng>=0.0 ? 'E':'W', fabs(lat)*DEG,
 			lat>=0.0 ? 'N':'S', DistStr(rad-refplanet->Size()));
 		if (sp) {

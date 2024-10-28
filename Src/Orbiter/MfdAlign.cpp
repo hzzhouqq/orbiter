@@ -284,9 +284,9 @@ void Instrument_OPlaneAlign::UpdateDraw (oapi::Sketchpad *skp)
 	skp->Line(x, y, x + cw * 11, y);
 	skp->Line(x + cw * 12, y, x + cw * 23, y);
 	skp->Line(x + cw * 24, y, x + cw * 36, y); y += 1;
-	sprintf (cbuf, "Inc% 7.2fº Inc% 7.2fº RInc%7.2fº", Deg(shpel->i), Deg(tgtel->i), Deg(reli));
+	sprintf (cbuf, "Inc% 7.2f?Inc% 7.2f?RInc%7.2f", Deg(shpel->i), Deg(tgtel->i), Deg(reli));
 	skp->Text(x, y, cbuf, strlen(cbuf)); y += ch;
-	sprintf (cbuf, "LAN% 7.2fº LAN% 7.2fº R %+7.3fº/s", Deg(shpel->theta), Deg(tgtel->theta), Deg(didt));
+	sprintf (cbuf, "LAN% 7.2f?LAN% 7.2f?R %+7.3f?s", Deg(shpel->theta), Deg(tgtel->theta), Deg(didt));
 	skp->Text(x, y, cbuf, strlen(cbuf)); y += 2 * ch;
 
 	// node encounter data
@@ -318,7 +318,7 @@ void Instrument_OPlaneAlign::UpdateDraw (oapi::Sketchpad *skp)
 	skp->Line(x + cw * 10, y, x + cw * 17, y);
 	skp->Line(x + cw * 19, y, x + cw * 25, y);
 	skp->Line(x + cw * 27, y, x + cw * 33, y); y += 1;
-	sprintf(cbuf, have_intersection ? "AN  NML- %s" : "CE  90º  %s", FloatStr(dVan));
+	sprintf(cbuf, have_intersection ? "AN  NML- %s" : "CE  90? %s", FloatStr(dVan));
 	y1 = (an_is_next ? y : y + ch);
 	skp->Text(x, y1, cbuf, strlen(cbuf));
 	strcpy(cbuf, FloatStr(burnTan, 3));
